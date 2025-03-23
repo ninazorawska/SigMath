@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigMath - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Login Screen -->
+    <div class="screen" id="login-screen">
+        <img src="Logo.png" alt="Logo" class="logo">
+        <input type="text" placeholder="Username" id="login-username">
+        <input type="password" placeholder="Password" id="login-password">
+        <button onclick="login()">Login</button>
+        <p class="register-text" onclick="showSignup()">Don't have an account? Register here!</p>
+    </div>
+
+    <!-- Signup Screen -->
+    <div class="screen" id="signup-screen">
+        <h1>Create Account</h1>
+        <input type="text" placeholder="Username" id="signup-username">
+        <input type="password" placeholder="Password" id="signup-password">
+        <button onclick="signup()">Sign Up</button>
+        <button onclick="showLogin()">Back to Login</button>
+    </div>
+
+    <!-- Main Menu-->
+    <div class="screen" id="main-menu">
+        <div class="menu-container"></div>
+            <img src="Logo.png" alt="Logo" class="logo">
+            <button onclick="openSearchTopic()">Choose/Change topic</button>
+            <button onclick="showProfile()">View My Profile</button>
+        <button onclick="showLogin()">Logout</button>
+    </div>
+
+    <!-- Search Topic Screen -->
+    <div class="screen" id="search-topic-screen">
+        <h1>Search Topic</h1>
+        <input type="text" placeholder="Enter a topic" id="search-bar" oninput="showSuggestions()">
+        <!-- Initially hidden list -->
+        <ul id="suggestions-list"></ul>
+        <!-- Article Display, Hidden Until a Topic is Selected -->
+        <div id="article-display" class="hidden">
+            <h2 id="article-title"></h2>
+            <p id="article-content"></p>
+            <button id="practice-button" class="practice-button" onclick="startPractice()" style="display: none;">Practice this subject →</button>
+        </div>
+    
+        <button onclick="showMainMenu()">Back to Main Menu</button>
+    </div>
+
+    <!-- Profile Screen -->
+    <div class="screen" id="profile-screen">
+        <h1>My Profile</h1>
+        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+        <p><strong>Current Streak:</strong> <span id="profile-streak"></span> 🔥</p>
+        <p><strong>Longest Streak:</strong> <span id="profile-longest-streak"></span></p>
+        <p><strong>Score:</strong> <span id="profile-score"></span> 🏆</p>
+        <p><strong>Total Questions Answered:</strong> <span id="profile-questions"></span></p>
+        <p><strong>Scores:</strong></p>
+        <div id="profile-scores"></div>
+        <button onclick="showMainMenu()">Back to Main Menu</button>
+     
+
+    </div>
+
+        <!-- Questions Screen -->
+    <div class="screen" id="questions-screen">
+        <h1 id="questions-topic-title">Questions</h1>
+        <div id="question-container"></div>
+        <div class="navigation-buttons">
+            <button id="prev-question" class="nav-button" onclick="prevQuestion()">← Previous</button>
+            <button id="next-question" class="nav-button" onclick="nextQuestion()" disabled>Next →</button>
+        </div>
+        <button onclick="showMainMenu()">Back to Main Menu</button>
+    </div>
+
+
+    <!-- Load the script at the END of the body -->
+    <script src="script.js"></script>
+
+</body>
+</html>
